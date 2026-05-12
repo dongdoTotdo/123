@@ -75,3 +75,48 @@ document.getElementById('downloadExcel').addEventListener('click', function() {
     XLSX.utils.book_append_sheet(workbook, worksheet, "StressResults");
     XLSX.writeFile(workbook, "Stress_Calculation_Results.xlsx");
 });
+
+
+const toleranceData ={
+    "H7": [
+        {min: 0, max: 3, upper: 10, lower: 0},
+        {min: 3, max: 6, upper: 12, lower: 0},
+        {min: 6, max: 10, upper: 15, lower: 0},
+        {min: 10, max: 18, upper: 18, lower: 0},
+        { min: 18, max: 30, upper: 21, lower: 0 },
+        { min: 30, max: 50, upper: 25, lower: 0 }
+    
+    ]
+};
+
+document.getElementById('findToleranceBtn').addEventListener('click', function() {
+    const size = parseFloat(document.getElementById('baseSize').value);
+    const grade = document.getElementById('toleranceGrade').value;
+    const resultDiv = document.getElementById('toleranceResult');
+
+    if (!size) {
+        alert("치수를 입력해!");
+        return;
+    }
+
+    
+    const gradeTable = toleranceData[grade];
+    const match = gradeTable.find(item => size > item.min && size <= item.max);
+
+    if (match) {
+        
+        const upperLimit = (size + match.upper / 1000).toFixed(3);
+        const lowerLimit = (size + match.lower / 1000).toFixed(3);
+        
+        resultDiv.innerHTML = `
+            <div style="background:#e1f5fe; padding:15px; border-radius:10px;">
+                <p>📌 ${grade} 공차 결과 (단위: mm)</p>
+                <p>최대 허용 치수: ${upperLimit}</p>
+                <p>최소 허용 치수: ${lowerLimit}</p>
+                <p style="font-size: 0.8rem; color: #666;">허용차: +${match.upper} / ${match.lower} μm</p>
+            </div>
+        `;
+    } else {
+        resultDiv.innerHTML = "❌ 해당 범위의 규격 데이터가 아직 없습니다.";
+    }
+});

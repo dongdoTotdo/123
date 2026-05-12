@@ -2,12 +2,12 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>전문가용 인장 응력 계산기</title>
+    <title> 인장 응력 계산기</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>⚙️ Engineering Stress Calculator</h1>
+        <h1>⚙️ Stress Calculator</h1>
         
         <div class="input-group">
             <label>하중 (Force, N)</label>
@@ -18,7 +18,30 @@
             
             <button id="calculateBtn">계산 및 기록</button>
             <button id="downloadExcel" class="excel-btn">엑셀로 내보내기</button>
+                   
         </div>
+        
+        <div class="tool-section" style="margin-top: 50px; border-top: 3px double #eee; padding-top: 20px;">
+            <h2> 공차(ISO/KS) </h2>
+            <div class="input-group">
+                <label>기준 치수 (mm)</label>
+                <input type="number" id="baseSize" placeholder="예: 30">
+
+                <label>공차 등급</label>
+                <select id="toleranceGrade">
+                    <option value="H7">H7</option>
+                </select>
+
+                <button id="findToleranceBtn">공차확인</button>
+            </div>
+
+            <div id="toleranceResult" style="margin-top: 20px; font-weight: bold; color: #2c3e50;">  
+            </div>
+
+        </div>
+
+
+
 
         <div class="table-container">
             <table>
