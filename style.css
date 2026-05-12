@@ -1,0 +1,75 @@
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 600px;
+    transition: transform 0.3s ease;
+}
+
+h1 { color: #2c3e50; text-align: center; margin-bottom: 2rem; }
+
+.input-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+
+input {
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #4A90E2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #4A90E2;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover { background: #357ABD; transform: translateY(-2px); }
+button:active { transform: translateY(0); }
+
+.excel-btn { background: #27ae60; margin-top: 5px; }
+.excel-btn:hover { background: #219150; }
+
+/* 표 디자인 */
+.table-container { margin-top: 20px; border-top: 2px solid #eee; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; }
+th { background: #f8f9fa; font-size: 0.9rem; color: #666; }
+
+/* 동적 애니메이션 */
+tbody tr {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+tbody tr:hover { background: #f1f7ff; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.delete-btn {
+    background: #ff7675;
+    padding: 5px 10px;
+    font-size: 12px;
+}

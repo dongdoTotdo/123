@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전문가용 인장 응력 계산기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>⚙️ Engineering Stress Calculator</h1>
+        
+        <div class="input-group">
+            <label>하중 (Force, N)</label>
+            <input type="number" id="force" placeholder="예: 5000">
+            
+            <label>단면적 (Area, mm²)</label>
+            <input type="number" id="area" placeholder="예: 100">
+            
+            <button id="calculateBtn">계산 및 기록</button>
+            <button id="downloadExcel" class="excel-btn">엑셀로 내보내기</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>하중(N)</th>
+                        <th>면적(mm²)</th>
+                        <th>응력(MPa)</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody id="resultBody">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
