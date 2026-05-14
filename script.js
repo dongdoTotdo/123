@@ -85,6 +85,15 @@ const toleranceData ={
         {min: 10, max: 18, upper: 18, lower: 0},
         { min: 18, max: 30, upper: 21, lower: 0 },
         { min: 30, max: 50, upper: 25, lower: 0 }
+    ],        
+
+    "g6": [
+        { min: 0, max: 3, upper: -2, lower: -8 },
+        { min: 3, max: 6, upper: -4, lower: -12 },
+        { min: 6, max: 10, upper: -5, lower: -14 },
+        { min: 10, max: 18, upper: -6, lower: -17 },
+        { min: 18, max: 30, upper: -7, lower: -20 },
+        { min: 30, max: 50, upper: -9, lower: -25 }
     
     ]
 };
@@ -120,3 +129,4 @@ document.getElementById('findToleranceBtn').addEventListener('click', function()
         resultDiv.innerHTML = "❌ 해당 범위의 규격 데이터가 아직 없습니다.";
     }
 });
+
